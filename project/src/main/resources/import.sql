@@ -1,0 +1,27 @@
+INSERT INTO app_user VALUES(1, 'Daniel', 'Padilla', '209-355-4641', 'dpad@gmail.com', '123 4th St Washington');
+INSERT INTO app_user VALUES(2, 'Brian', 'Kelly', '435-784-7011', 'bk@gmail.com', '123 4th St Washington');
+INSERT INTO app_user VALUES(3, 'Billy', 'Huyhn', '621-673-0435', 'ph@gmail.com', '123 4th St Washington');
+
+INSERT INTO justification_option VALUES(1, 'Promotion');
+INSERT INTO justification_option VALUES(2, 'Security Clearance');
+INSERT INTO justification_option VALUES(3, 'Other');
+
+INSERT INTO status_option VALUES(1, 'PENDING');
+INSERT INTO status_option VALUES(2, 'APPROVED');
+INSERT INTO status_option VALUES(3, 'REJECTED');
+
+INSERT INTO request_ticket VALUES(1, CURRENT_DATE, 1, 3, 1);
+INSERT INTO request_ticket VALUES(2, CURRENT_DATE, 1, 1, 1);
+INSERT INTO request_ticket VALUES(3, CURRENT_DATE, 2, 1, 1);
+
+INSERT INTO role VALUES(1, 'ROLE_ASSOCIATE');
+INSERT INTO role VALUES(2, 'ROLE_ADMIN');
+INSERT INTO role VALUES(3, 'ROLE_EXECUTIVE');
+
+INSERT INTO user_authentication VALUES(1, '$2a$10$xfL2VcG1XKILIoe9JO91MeOUJL3KSoAINvaBou0jikBimkJlsmNVq', 'DanPad', 1);
+INSERT INTO user_authentication VALUES(2, 'MyPassword1', 'BKelly', 2);
+INSERT INTO user_authentication VALUES(3, 'MyPassword2', 'BillyP', 3);
+
+INSERT INTO user_authentication_roles VALUES(1, 1);
+INSERT INTO user_authentication_roles VALUES(2, 1);
+INSERT INTO user_authentication_roles VALUES(3, 1);

@@ -6,6 +6,7 @@
 <li>Java 11</li>
 <li>Spring Boot</li>
 <li>Spring Security</li>
+ <li>Spring Web MVC</li>
 <li>Apache Maven</li>
 <li>Spring Data JPA</li>
 <li>H2 In-Memory Database</li>

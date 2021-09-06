@@ -58,7 +58,9 @@ public class UserAuthenticationServiceImpl implements UserAuthenticationService,
 
     @Override
     public AppUser getAppUser(String username) {
-        return getUser(username).getAppUserId();
+        AppUser temp = getUser(username).getAppUserId();
+        log.info("Here is the appUser in service: {}", temp);
+        return temp;
     }
 
 

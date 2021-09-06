@@ -22,4 +22,6 @@ public class RequestTicket {
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     private StatusOption statusOption;
     private LocalDate date;
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    private Role privileges;
 }

@@ -1,6 +1,8 @@
 <h1>Request For Access</h1>
 <h2>Description</h2>
 <p>The Request For Access System manages the process of adding role to users and hence allowing certain permissions in the front and back end of an application. All users can log in, users with associate and admin roles can submit a request to have their privileges elevated while an executive role cannot. An executive role can accept or deny the requests for admins and associates while an admin can only accept an associate request up to the level of admin.</p>
+<h2>IMPORTANT</h2>
+<p>IMPORTANT: To login as Associate Username: DanPad, Password: MyPassword. To login as ADMIN Username: BKelly, Password:MyPassword1. To login as Executive Username: BillyP, Password:MyPassword2</p>
 <h2>Technologies Used</h2>
 <ul>
 <li>Java 11</li>

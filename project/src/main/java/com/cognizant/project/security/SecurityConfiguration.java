@@ -54,6 +54,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .hasAuthority("ROLE_EXECUTIVE");
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/ticket/retrieve/all/{days}")
                 .hasAnyAuthority("ROLE_EXECUTIVE", "ROLE_ADMIN");
+        http.authorizeRequests().antMatchers(HttpMethod.PUT, "/role/user/{username}")
+                .hasAnyAuthority("ROLE_EXECUTIVE", "ROLE_ADMIN");
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/auth/user/save/**")
                 .hasAnyAuthority("ROLE_ADMIN");
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/ticket/create/**")
@@ -73,7 +75,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public CorsConfigurationSource corsConfigurationSource() {
         final CorsConfiguration corsConfiguration = new CorsConfiguration();
         corsConfiguration.setAllowedOrigins(Collections.unmodifiableList(Arrays.asList("http://localhost:4200")));
-        corsConfiguration.setAllowedMethods(Collections.unmodifiableList(Arrays.asList("GET", "POST")));
+        corsConfiguration.setAllowedMethods(Collections.unmodifiableList(Arrays.asList("GET", "POST", "PUT")));
         corsConfiguration.setAllowCredentials(true);
         corsConfiguration.setAllowedHeaders(Collections.unmodifiableList(Arrays.asList("Authorization", "Cache-Control", "Content-Type")));
         corsConfiguration.setExposedHeaders(Collections.unmodifiableList(Arrays.asList("Authorization", "Cache-Control", "Content-Type")));

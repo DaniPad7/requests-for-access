@@ -1,9 +1,11 @@
 package com.cognizant.project.service;
 
 import com.cognizant.project.model.AppUser;
+import com.cognizant.project.model.RequestTicket;
 import com.cognizant.project.model.Role;
 import com.cognizant.project.model.UserAuthentication;
 import com.cognizant.project.repository.AppUserRepository;
+import com.cognizant.project.repository.RequestTicketRepository;
 import com.cognizant.project.repository.RoleRepository;
 import com.cognizant.project.repository.UserAuthenticationRepository;
 import lombok.RequiredArgsConstructor;
@@ -31,6 +33,7 @@ public class UserAuthenticationServiceImpl implements UserAuthenticationService,
     private final AppUserRepository appUserRepository;
     private final BCryptPasswordEncoder passwordEncoder;
     private final RoleRepository roleRepository;
+    private final RequestTicketRepository requestTicketRepository;
 
     @Override
     public UserAuthentication saveUser(UserAuthentication user) {
@@ -79,9 +82,24 @@ public class UserAuthenticationServiceImpl implements UserAuthenticationService,
             throw new UsernameNotFoundException("User not found in the database");
         } else {
             log.info("User found in the database {}", username);
-            Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
-            user.getRoles().forEach(role -> authorities.add(new SimpleGrantedAuthority(role.getRole())));
-            return new User(user.getUsername(), user.getPassword(), authorities);
+            Collection<RequestTicket> requestTickets = requestTicketRepository.findAllByAppUser(30, user.getAppUserId());
+            if(!requestTickets.isEmpty()) {
+                Collection<Role> existingRoles = user.getRoles();
+                requestTickets.forEach(rt -> {
+                    if(!existingRoles.contains(rt.getPrivileges()))
+                        existingRoles.add(rt.getPrivileges());
+                });
+                user.setRoles(existingRoles);
+                UserAuthentication newUser = userAuthenticationRepository.save(user);
+                Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
+                newUser.getRoles().forEach(role -> authorities.add(new SimpleGrantedAuthority(role.getRole())));
+                return new User(user.getUsername(), user.getPassword(), authorities);
+            }else {
+                Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
+                user.getRoles().forEach(role -> authorities.add(new SimpleGrantedAuthority(role.getRole())));
+                return new User(user.getUsername(), user.getPassword(), authorities);
+            }
+
         }
     }
 }

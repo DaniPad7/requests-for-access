@@ -3,7 +3,7 @@
 <p>The Request For Access System manages the process of adding role to users and hence allowing certain permissions in the front and back end of an application. All users can log in, users with associate and admin roles can submit a request to have their privileges elevated while an executive role cannot. An executive role can accept or deny the requests for admins and associates while an admin can only accept an associate request up to the level of admin.</p>
 <h2>IMPORTANT</h2>
 <p>IMPORTANT: To login as Associate Username: DanPad, Password: MyPassword. To login as ADMIN Username: BKelly, Password:MyPassword1. To login as Executive Username: BillyP, Password:MyPassword2</p>
-<p>To enter the h2-console visit http://localhost:8080/h2-console and the username is sa and the password is idk.</p>
+<p>To enter the h2-console visit http://localhost:8080/h2-console where the link is jdbc:h2:mem:f56fc33a-9cf0-4a99-be08-ee89cc447eb5 and the username is sa and the password is idk.</p>
 <h2>Technologies Used</h2>
 <ul>
 <li>Java 11</li>

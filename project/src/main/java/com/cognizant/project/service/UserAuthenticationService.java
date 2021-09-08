@@ -8,7 +8,6 @@ import java.util.List;
 public interface UserAuthenticationService {
     UserAuthentication saveUser(UserAuthentication user);
     //saveRole in Role Repo
-    void addRoleToUser(String username, String roleName);
     UserAuthentication getUser(String username);
     AppUser getAppUser(String username);
     List<AppUser> getUsers();

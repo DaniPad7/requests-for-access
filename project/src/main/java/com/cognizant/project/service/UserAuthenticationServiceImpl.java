@@ -47,14 +47,6 @@ public class UserAuthenticationServiceImpl implements UserAuthenticationService,
     }
 
     @Override
-    public void addRoleToUser(String username, String roleName) {
-        log.info("Add the Role {} to user {}", roleName, username);
-        UserAuthentication user = userAuthenticationRepository.findByUsername(username);
-        Role role = roleRepository.findByRole(roleName);
-        user.getRoles().add(role);
-    }
-
-    @Override
     public UserAuthentication getUser(String username) {
         return userAuthenticationRepository.findByUsername(username);
     }

@@ -28,7 +28,6 @@
 </ul>
 <h3>To Do's:</h3>
 <ul>
-  <li>Implement capability for Admin and Executive roles to approve or reject requests.</li>
   <li>Implement restrictions on what role can approve or reject the request of another role.</li>
   <li>Implement the ability to utilize the refresh token provided by the back-end.</li>
   <li>Implement the feature for users to register.</li>

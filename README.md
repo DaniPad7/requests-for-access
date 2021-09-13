@@ -14,7 +14,6 @@
 <li>Spring Data JPA</li>
 <li>H2 In-Memory Database</li>
 <li>Hibernate</li>
-<li>OAuth</li>
   <li>Log4j</li>
  <li>Git/Github</li>
 </ul>

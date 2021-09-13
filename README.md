@@ -13,6 +13,7 @@
 <li>Apache Maven</li>
 <li>Spring Data JPA</li>
 <li>H2 In-Memory Database</li>
+ <li>Java-Jwt</li>
 <li>Hibernate</li>
   <li>Log4j</li>
  <li>Git/Github</li>
